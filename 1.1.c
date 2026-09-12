@@ -1,28 +1,29 @@
 #include <math.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 
-#define X 1.426
-#define Y -1.22
-#define Z 3.5
-
-#define PI 3.141592653589793
+#define X 2.0
+#define Y 0.7
+#define Z -1.0
 
 
 int main(void) {
-    double a =
-        (2.0 * cos(X - PI/6))
-                 /
-        (0.5 + pow(sin(Y), 2));
+    double a = cbrt(
+                    X * Y * Z +
+                    fabs(
+                         Z * sin(Y)
+                     )
+                );
 
-    double b = 1 +
-        pow(Z, 2)
-           /
-        (3 + pow(Z, 2) / 5);
-    
+    double b = Y *
+               cos(
+                   X * Z *
+                   sin(Y)
+               ) + 3;
 
-    printf("x = %.3f\n", X);
-    printf("y = %.2f\n", Y);
+    printf("x = %.1f\n", X);
+    printf("y = %.1f\n", Y);
     printf("z = %.1f\n", Z);
     
     printf("a = %.16f\n", a);
