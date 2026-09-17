@@ -8,19 +8,14 @@
 #define Z -1.0
 
 
-int main(void) {
-    double a = cbrt(
-                    X * Y * Z +
-                    fabs(
-                         Z * sin(Y)
-                     )
-                );
+double geta(void);
 
-    double b = Y *
-               cos(
-                   X * Z *
-                   sin(Y)
-               ) + 3;
+double getb(void);
+
+
+int main(void) {
+    double a = geta();
+    double b = getb();
 
     printf("x = %.1f\n", X);
     printf("y = %.1f\n", Y);
@@ -32,3 +27,20 @@ int main(void) {
     return 0;
 }
 
+
+double geta(void) {
+    return     cbrt(
+                   X * Y * Z +
+                   fabs(
+                        Z * sin(Y)
+                    )
+               );
+}
+
+double getb(void) {
+    return     Y *
+               cos(
+                   X * Z *
+                   sin(Y)
+               ) + 3;
+}
