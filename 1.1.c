@@ -8,11 +8,23 @@
 #define Z -1.0
 
 
+/**
+ * @brief Вычисляет a
+ * @return Число a
+ */
 double geta(void);
 
+/**
+ * @brief Вычисляет b
+ * @return Число b
+ */
 double getb(void);
 
 
+/**
+ * @brief Начало выполнения программы
+ * @return Если всё успешно, 0
+ */
 int main(void) {
     double a = geta();
     double b = getb();
