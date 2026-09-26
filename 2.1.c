@@ -1,10 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+ /**
+ * @brief Получить одну сторону параллелепипеда от пользователя
+ * @return Одна из сторон параллелепипеда
+ */
 double get_dim(void);
 
 
+
+ /**
+ * @brief Начало выполнения программы
+ * @brief Если всё прошло успешно, то 0, если пользователь ввёл неправильное значение, то 1
+ */
 int main(void) {
     double length = get_dim();
     double width = get_dim();
