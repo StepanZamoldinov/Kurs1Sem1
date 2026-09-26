@@ -3,22 +3,23 @@
 #include <stdio.h>
 
 
-#define X 2.0
-#define Y 0.7
-#define Z -1.0
-
-
 /**
  * @brief Вычисляет a
+ * @param x Первый параметр
+ * @param y Второй параметр
+ * @param z Третий параметр
  * @return Число a
  */
-double geta(void);
+double geta(double x, double y, double z);
 
 /**
  * @brief Вычисляет b
+ * @param x Первый параметр
+ * @param y Второй параметр
+ * @param z Третий параметр
  * @return Число b
  */
-double getb(void);
+double getb(double x, double y, double z);
 
 
 /**
@@ -26,12 +27,16 @@ double getb(void);
  * @return Если всё успешно, 0
  */
 int main(void) {
-    double a = geta();
-    double b = getb();
+    const double x = 2.0;
+    const double y = 0.7;
+    const double z = -1.0;
 
-    printf("x = %.1f\n", X);
-    printf("y = %.1f\n", Y);
-    printf("z = %.1f\n", Z);
+    double a = geta(x, y, z);
+    double b = getb(x, y, z);
+
+    printf("x = %.1f\n", x);
+    printf("y = %.1f\n", y);
+    printf("z = %.1f\n", z);
     
     printf("a = %.16f\n", a);
     printf("b = %.16f\n", b);
@@ -40,19 +45,19 @@ int main(void) {
 }
 
 
-double geta(void) {
+double geta(double x, double y, double z) {
     return     cbrt(
-                   X * Y * Z +
+                   x * y * z +
                    fabs(
-                        Z * sin(Y)
+                        z * sin(y)
                     )
                );
 }
 
-double getb(void) {
-    return     Y *
+double getb(double x, double y, double z) {
+    return     y *
                cos(
-                   X * Z *
-                   sin(Y)
+                   x * z *
+                   sin(y)
                ) + 3;
 }
