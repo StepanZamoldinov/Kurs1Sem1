@@ -37,6 +37,7 @@ int main(void) {
         ld sum_result = solve_for_x(x, epsilon);
         printf("%.10Lf | %.10Lf | %.10Lf\n", x, result, sum_result);
     }
+    return 0;
 }
 
 ld solve_for_x(const ld x, const ld epsilon) {
