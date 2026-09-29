@@ -9,12 +9,12 @@
  */
 int main(void) {
     const double a = 0.9;
-    double x;
+    double x = 0.0;
 
     if (!scanf("%lf", &x)) return 1;
 
 
-    double result;
+    double result = 0.0;
     if (x > 1.0) {
         result = a * log10(x) + sqrt(fabs(x));
     } else {
