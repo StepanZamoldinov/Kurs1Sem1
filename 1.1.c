@@ -10,7 +10,7 @@
  * @param z Третий параметр
  * @return Число a
  */
-double geta(double x, double y, double z);
+double geta(const double x, const double y, const double z);
 
 /**
  * @brief Вычисляет b
@@ -19,7 +19,7 @@ double geta(double x, double y, double z);
  * @param z Третий параметр
  * @return Число b
  */
-double getb(double x, double y, double z);
+double getb(const double x, const double y, const double z);
 
 
 /**
@@ -45,7 +45,7 @@ int main(void) {
 }
 
 
-double geta(double x, double y, double z) {
+double geta(const double x, const double y, const double z) {
     return     cbrt(
                    x * y * z +
                    fabs(
@@ -54,7 +54,7 @@ double geta(double x, double y, double z) {
                );
 }
 
-double getb(double x, double y, double z) {
+double getb(const double x, const double y, const double z) {
     return     y *
                cos(
                    x * z *
