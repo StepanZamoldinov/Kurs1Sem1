@@ -17,7 +17,7 @@ int main(void) {
 
     if (scanf("%lf", &x) != 1) return 1;
 
-    double result = calculate_result();
+    double result = calculate_result(x, a);
     
     printf("%lf\n", result);
     return 0;
