@@ -13,6 +13,7 @@ double get_resistor(void);
  */
 int main(void) {
     double total = 0;
+    printf("Enter 3 resistance values:\n");
     for (int i = 0; i < 3; i++) total += get_resistor();
 
     printf("Total resistance = %.4lf\n", total);
