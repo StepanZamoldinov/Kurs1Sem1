@@ -12,7 +12,7 @@ double get_resistor(void);
  * @return Если всё прошло успешно, то 0
  */
 int main(void) {
-    double total = 0;
+    double total = 0.0;
     printf("Enter 3 resistance values:\n");
     for (int i = 0; i < 3; i++) total += get_resistor();
 
