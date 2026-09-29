@@ -11,7 +11,7 @@ int main(void) {
     const double a = 0.9;
     double x = 0.0;
 
-    if (!scanf("%lf", &x)) return 1;
+    if (scanf("%lf", &x) != 1) return 1;
 
 
     double result = 0.0;
