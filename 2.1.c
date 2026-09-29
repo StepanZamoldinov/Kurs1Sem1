@@ -35,8 +35,8 @@ int main(void) {
     double width = get_dim();
     double height = get_dim();
 
-    double volume = get_volume();
-    double surface_area = get_surface_area();
+    double volume = get_volume(length, width, height);
+    double surface_area = get_surface_area(length, width, height);
     printf("Volume: %.4lf\nSurface area: %.4lf\n", volume, surface_area);
     return 0;
 }
