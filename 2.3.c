@@ -8,7 +8,7 @@
 int main(void) {
     char daytime[11];
     printf("Enter the current time of the day: ");
-    if (!fgets(daytime, sizeof(daytime), stdin)) return 1;
+    if (fgets(daytime, sizeof(daytime), stdin) == NULL) return 1;
 
     daytime[strcspn(daytime, "\n")] = '\0';
 
