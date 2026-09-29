@@ -11,7 +11,7 @@ typedef unsigned long long ull;
  * @param epsilon Точность вычисления
  * @return Результат вычисления суммы
  */
-ld solve_for_x(ld x, ld epsilon);
+ld solve_for_x(const ld x, const ld epsilon);
 
  /**
  * @brief Начало выполнения программы
