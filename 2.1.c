@@ -7,7 +7,24 @@
  */
 double get_dim(void);
 
+ /**
+ * @brief Вычислить объём параллелепипеда
+ * @param length Длина
+ * @param width Ширина
+ * @param height Высота
+ * @return Объём
+ */
+double get_volume(const double length, const double width, const double height);
 
+
+ /**
+ * @brief Вычислить площадь поверхности параллелепипеда
+ * @param length Длина
+ * @param width Ширина
+ * @param height Высота
+ * @return Площадь поверхности
+ */
+double get_surface_area(const double length, const double width, const double height);
 
  /**
  * @brief Начало выполнения программы
@@ -18,8 +35,8 @@ int main(void) {
     double width = get_dim();
     double height = get_dim();
 
-    double volume = length*width*height;
-    double surface_area = 2*(length*width) + 2*(length*height) + 2*(height*width);
+    double volume = get_volume();
+    double surface_area = get_surface_area();
     printf("Volume: %.4lf\nSurface area: %.4lf\n", volume, surface_area);
     return 0;
 }
@@ -32,4 +49,13 @@ double get_dim(void) {
     }
 
     return dim;
+}
+
+
+double get_volume(const double length, const double width, const double height) {
+    return length*width*height;
+}
+
+double get_surface_area(const double length, const double width, const double height) {
+    return 2*(length*width) + 2*(length*height) + 2*(height*width);
 }
