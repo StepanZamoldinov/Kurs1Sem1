@@ -14,13 +14,6 @@ typedef unsigned long long ull;
 ld solve_for_x(ld x, ld epsilon);
 
  /**
- * @brief Стандартная функция для нахождения факториала
- * @param n Число, факториал которого нужно найти. Считается, что ввод правильный(n > 0)
- * @return Факториал вводного числа
- */
-ull factorial(ull n);
-
- /**
  * @brief Начало выполнения программы
  * @return Если всё прошло успешно, то 0
  */
@@ -41,19 +34,14 @@ int main(void) {
 
 ld solve_for_x(const ld x, const ld epsilon) {
     ld result = 1.0;
+    ld last = 1.0;
     ull n = 1ULL;
     while (1u) {
-        ld new = powl(2*x, (ld)n) / (ld)factorial(n);
-        result += new;
-        if (new < epsilon) break;
+        last = last * (2*x / (ld)n);
+        result += last;
+        if (last < epsilon) break;
         n++;
     }
     return result;
     
-}
-
-ull factorial(ull n) {
-    ull result = 1.0L;
-    while (n > 1ULL) result *= n--;
-    return result;
 }
