@@ -44,7 +44,7 @@ int main(void) {
 double get_dim(void) {
     double dim = 0.0;
 
-    if (!scanf("%lf", &dim)) {
+    if (scanf("%lf", &dim) != 1) {
         exit(1);
     }
 
