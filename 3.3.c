@@ -21,7 +21,7 @@ ld solve_for_x(const ld x, const ld epsilon);
 
  /**
  * @brief Начало выполнения программы
- * @return Если всё прошло успешно, то 0
+ * @return Если всё прошло успешно, то 0, если ввод неправильный, то 1
  */
 int main(void) {
     printf("Enter step: ");
