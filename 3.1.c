@@ -24,9 +24,11 @@ int main(void) {
     double xstart = get_double();
     printf("Interval end: ");
     double xend = get_double();
+    if (xend < xstart) return 1;
     
     printf("Step: ");
     double dx = get_double();
+    if (dx <= 0.0) return 1;
 
     for (double x = xstart; x < xend + dx / 2.0; x += dx) {
         if (!(x > 0.0)) {
