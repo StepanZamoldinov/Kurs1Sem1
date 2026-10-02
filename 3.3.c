@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 typedef long double ld;
 typedef unsigned long long ull;
+
+ /**
+ * @brief Получить число типа long double от пользователя
+ * @return Число от пользователя
+ */
+ld get_long_double(void);
 
  /**
  * @brief Вычислить сумму функционального ряда для функции e^(2x) с заданной точностью
@@ -17,10 +24,14 @@ ld solve_for_x(const ld x, const ld epsilon);
  * @return Если всё прошло успешно, то 0
  */
 int main(void) {
-    const ld step = 0.1L;
-    const ld interval_start = 0.1L;
-    const ld interval_end = 1.0L;
-    const ld epsilon = 0.00000625L;
+    printf("Enter step: ");
+    const ld step = get_long_double();
+    printf("Enter interval start: ");
+    const ld interval_start = get_long_double();
+    printf("Enter interval end: ");
+    const ld interval_end = get_long_double();
+    printf("Enter precision: ");
+    const ld epsilon = get_long_double();
 
     printf("      x      |    e^(2x)    |     Sum\n");
     for (ld x = interval_start; x <= interval_end + step / 2.0L; x += step) {
@@ -43,4 +54,11 @@ ld solve_for_x(const ld x, const ld epsilon) {
     }
     return result;
     
+}
+
+
+ld get_long_double(void) {
+    ld ret = 0.0L;
+    if (scanf("%Lf", &ret) != 1) exit(1);
+    return ret;
 }
