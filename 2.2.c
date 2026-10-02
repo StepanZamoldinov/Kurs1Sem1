@@ -3,7 +3,10 @@
 
 
 
-
+ /**
+ * @brief Вычислить результат вычисления программы в зависимости от ввода
+ * @return результат вычисления математической функции
+ */
 double calculate_result(const double x, const double a);
 
 
