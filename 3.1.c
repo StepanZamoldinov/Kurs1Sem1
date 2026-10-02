@@ -9,6 +9,13 @@
 double get_double();
 
  /**
+ * @brief Вычислить y
+ * @param x Параметр математической функции
+ * @return Вычисленное число
+ */
+double gety(const double x);
+
+ /**
  * @brief Начало выполнения программы
  * @return 0 если всё успешно, 1 если был неправильный ввод от пользователя
  */
@@ -26,7 +33,7 @@ int main(void) {
             printf("Impossible x: %.10lf\n", x);
             continue;
         }
-        double y = 0.1*x*x - x*log(x);
+        double y = gety(x);
         printf("%.10lf | %.10lf\n", x, y);
     }
     
@@ -38,4 +45,8 @@ double get_double() {
     double ret = 0.0;
     if (scanf("%lf", &ret) != 1) exit(1);
     return ret;
+}
+
+double gety(const double x) {
+    return 0.1*x*x - x*log(x);
 }
