@@ -35,7 +35,7 @@ int main(void) {
 
     printf("      x      |    e^(2x)    |     Sum\n");
     for (ld x = interval_start; x <= interval_end + step / 2.0L; x += step) {
-        ld result = powl(M_E, 2.0L * x);
+        ld result = exp(2.0L * x);
         ld sum_result = solve_for_x(x, epsilon);
         printf("%.10Lf | %.10Lf | %.10Lf\n", x, result, sum_result);
     }
