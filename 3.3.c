@@ -26,12 +26,17 @@ ld solve_for_x(const ld x, const ld epsilon);
 int main(void) {
     printf("Enter step: ");
     const ld step = get_long_double();
+    if (step < 0.0L) return 1;
+    
     printf("Enter interval start: ");
     const ld interval_start = get_long_double();
     printf("Enter interval end: ");
     const ld interval_end = get_long_double();
+    if (interval_end < interval_start) return 1
+    
     printf("Enter precision: ");
     const ld epsilon = get_long_double();
+    if (epsilon <= 0.0L) return 1;
 
     printf("      x      |    e^(2x)    |     Sum\n");
     for (ld x = interval_start; x <= interval_end + step / 2.0L; x += step) {
