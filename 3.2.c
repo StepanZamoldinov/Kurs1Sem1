@@ -57,7 +57,7 @@ int main(void) {
 
     printf("Sum of %llu elements:\n\t%.32Lf\nSum of elements with precision of %.32Lf:\n\t%.32Lf\n", n, sum_n, epsilon, sum_epsilon);
     printf("=================\n");
-    printf("ADDITIONAL TASK:\n");
+    printf("ADDITIONAL TASK(var 9):\n");
     for (unsigned short i = 1000u; i < 9999u; i++) {
         if (
             (i / 1000u + i % 10u == i % 1000u / 100u + i % 100u / 10u)
