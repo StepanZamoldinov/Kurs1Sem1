@@ -32,7 +32,7 @@ int main(void) {
     const ld interval_start = get_long_double();
     printf("Enter interval end: ");
     const ld interval_end = get_long_double();
-    if (interval_end < interval_start) return 1
+    if (interval_end < interval_start) return 1;
     
     printf("Enter precision: ");
     const ld epsilon = get_long_double();
