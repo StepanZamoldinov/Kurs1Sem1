@@ -2,14 +2,12 @@
 #include <math.h>
 #include <stdlib.h>
 
-typedef long double ld;
-typedef unsigned long long ull;
 
  /**
- * @brief Получить число типа long double от пользователя
+ * @brief Получить число типа double от пользователя
  * @return Число от пользователя
  */
-ld get_long_double(void);
+double get_double(void);
 
  /**
  * @brief Вычислить сумму функционального ряда для функции e^(2x) с заданной точностью
@@ -17,7 +15,7 @@ ld get_long_double(void);
  * @param epsilon Точность вычисления
  * @return Результат вычисления суммы
  */
-ld solve_for_x(const ld x, const ld epsilon);
+double solve_for_x(const double x, const double epsilon);
 
  /**
  * @brief Начало выполнения программы
@@ -25,34 +23,34 @@ ld solve_for_x(const ld x, const ld epsilon);
  */
 int main(void) {
     printf("Enter step: ");
-    const ld step = get_long_double();
+    const double step = get_double();
     if (step < 0.0L) return 1;
     
     printf("Enter interval start: ");
-    const ld interval_start = get_long_double();
+    const double interval_start = get_double();
     printf("Enter interval end: ");
-    const ld interval_end = get_long_double();
+    const double interval_end = get_double();
     if (interval_end < interval_start) return 1;
     
     printf("Enter precision: ");
-    const ld epsilon = get_long_double();
+    const double epsilon = get_double();
     if (epsilon <= 0.0L) return 1;
 
     printf("      x      |    e^(2x)    |     Sum\n");
-    for (ld x = interval_start; x <= interval_end + step / 2.0L; x += step) {
-        ld result = exp(2.0L * x);
-        ld sum_result = solve_for_x(x, epsilon);
-        printf("%.10Lf | %.10Lf | %.10Lf\n", x, result, sum_result);
+    for (double x = interval_start; x <= interval_end + step / 2.0L; x += step) {
+        double result = exp(2.0 * x);
+        double sum_result = solve_for_x(x, epsilon);
+        printf("%.10lf | %.10lf | %.10lf\n", x, result, sum_result);
     }
     return 0;
 }
 
-ld solve_for_x(const ld x, const ld epsilon) {
-    ld result = 1.0;
-    ld last = 1.0;
-    ull n = 1ULL;
+double solve_for_x(const double x, const double epsilon) {
+    double result = 1.0;
+    double last = 1.0;
+    int n = 1;
     while (1u) {
-        last = last * (2*x / (ld)n);
+        last = last * (2*x / (double)n);
         result += last;
         if (last < epsilon) break;
         n++;
@@ -62,8 +60,8 @@ ld solve_for_x(const ld x, const ld epsilon) {
 }
 
 
-ld get_long_double(void) {
-    ld ret = 0.0L;
-    if (scanf("%Lf", &ret) != 1) exit(1);
+double get_double(void) {
+    double ret = 0.0L;
+    if (scanf("%lf", &ret) != 1) exit(1);
     return ret;
 }
