@@ -2,20 +2,18 @@
 #include <stdlib.h>
 #include <math.h>
 
-typedef unsigned long long ull;
-typedef long double ld;
 
  /**
- * @brief Получить от пользователя число типа unsigned long long
+ * @brief Получить от пользователя число типа int
  * @return Число от пользователя
  */
-ull get_ull(void);
+int get_int(void);
 
  /**
- * @brief Получить от пользователя число типа long double
+ * @brief Получить от пользователя число типа double
  * @return Число от пользователя
  */
-ld get_ld(void);
+double get_double(void);
 
  /**
  * @brief Вычисляет следующий элемент суммы рекуррентным способом
@@ -23,21 +21,21 @@ ld get_ld(void);
  * @param k Номер текущего элемента суммы
  * @return Следующий элемент суммы
  */
-ld calculate_next(ld last, ld k);
+double calculate_next(double last, double k);
 
  /**
  * @brief Вычислить сумму первых n членов последовательности (k=1,2,3,...,n) рекуррентным способом
  * @param n Количество элементов суммы
  * @return Вычисленное значение
  */
-ld calculate_sum_n(ld n);
+double calculate_sum_n(double n);
 
  /**
  * @brief Вычислить сумму всех членов последовательности, по модулю не меньших заданного epsilon рекуррентным способом
  * @param epsilon точность вычисления, т.е. минимальный по модулю элемент последовательности который будет суммироваться
  * @return Вычисленное значение
  */
-ld calculate_sum_epsilon(ld epsilon);
+double calculate_sum_epsilon(double epsilon);
 
  /**
  * @brief Начало выполнения программы
@@ -45,17 +43,17 @@ ld calculate_sum_epsilon(ld epsilon);
  */
 int main(void) {
     printf("Enter count: ");
-    ull n = get_ull();
-    if (!n) return 1;
+    int n = get_int();
+    if (n <= 0) return 1;
     printf("Enter precision: ");
-    ld epsilon = get_ld();
-    if (epsilon <= 0.0L) return 1;
+    double epsilon = get_double();
+    if (epsilon <= 0.0) return 1;
 
     printf("=================\n");
-    ld sum_n = calculate_sum_n(n);
-    ld sum_epsilon = calculate_sum_epsilon(epsilon);
+    double sum_n = calculate_sum_n(n);
+    double sum_epsilon = calculate_sum_epsilon(epsilon);
 
-    printf("Sum of %llu elements:\n\t%.32Lf\nSum of elements with precision of %.32Lf:\n\t%.32Lf\n", n, sum_n, epsilon, sum_epsilon);
+    printf("Sum of %d elements:\n\t%.32lf\nSum of elements with precision of %.32lf:\n\t%.32lf\n", n, sum_n, epsilon, sum_epsilon);
     printf("=================\n");
     printf("ADDITIONAL TASK(var 9):\n");
     for (unsigned short i = 1000u; i < 9999u; i++) {
@@ -69,26 +67,26 @@ int main(void) {
     return 0;
 }
 
-ull get_ull(void) {
-    ull ret = 0ULL;
-    if (scanf("%llu", &ret) != 1) exit(1);
+int get_int(void) {
+    int ret = 0;
+    if (scanf("%d", &ret) != 1) exit(1);
     return ret;
 }
 
-ld get_ld(void) {
-    ld ret = 0.0L;
-    if (scanf("%Lf", &ret) != 1) exit(1);
+double get_double(void) {
+    double ret = 0.0;
+    if (scanf("%lf", &ret) != 1) exit(1);
     return ret;
 }
 
-ld calculate_next(ld last, ld k) {
+double calculate_next(double last, double k) {
     return last * (-1) / ((2*k - 1) * (2*k - 2));
 }
 
-ld calculate_sum_n(ld n) {
-    ld last = 1.0L;
-    ld sum = last;
-    ull k = 1;
+double calculate_sum_n(double n) {
+    double last = 1.0L;
+    double sum = last;
+    int k = 1;
     while (k++ < n) {
         last = calculate_next(last, k);
         sum += last;
@@ -96,10 +94,10 @@ ld calculate_sum_n(ld n) {
     return sum;
 }
 
-ld calculate_sum_epsilon(ld epsilon) {
-    ld last = 1.0L;
-    ld sum = last;
-    ull k = 1;
+double calculate_sum_epsilon(double epsilon) {
+    double last = 1.0;
+    double sum = last;
+    int k = 1;
     while (1) {
         k++;
         last = calculate_next(last, k);
