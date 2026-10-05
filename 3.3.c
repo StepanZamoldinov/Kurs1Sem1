@@ -31,7 +31,7 @@ double solve_for_x_normal(const double x);
 int main(void) {
     printf("Enter step: ");
     const double step = get_double();
-    if (step < 0.0L) return 1;
+    if (step < 0.0) return 1;
     
     printf("Enter interval start: ");
     const double interval_start = get_double();
@@ -41,10 +41,10 @@ int main(void) {
     
     printf("Enter precision: ");
     const double epsilon = get_double();
-    if (epsilon <= 0.0L) return 1;
+    if (epsilon <= 0.0) return 1;
 
     printf("      x      |    e^(2x)    |     Sum\n");
-    for (double x = interval_start; x <= interval_end + step / 2.0L; x += step) {
+    for (double x = interval_start; x <= interval_end + step / 2.0; x += step) {
         double result = solve_for_x_normal(x);
         double sum_result = solve_for_x(x, epsilon);
         printf("%.10lf | %.10lf | %.10lf\n", x, result, sum_result);
@@ -70,7 +70,7 @@ double solve_for_x_normal(const double x) {
 }
 
 double get_double(void) {
-    double ret = 0.0L;
+    double ret = 0.0;
     if (scanf("%lf", &ret) != 1) exit(1);
     return ret;
 }
