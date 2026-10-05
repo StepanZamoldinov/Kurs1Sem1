@@ -98,11 +98,12 @@ double calculate_sum_epsilon(double epsilon) {
     double last = 1.0;
     double sum = last;
     int k = 1;
-    while (1) {
+    while (fabs(last) >= epsilon) {
         k++;
         last = calculate_next(last, k);
-        if (fabsl(last) < epsilon) break;
-        sum += last;
+        if (fabs(last) >= epsilon) {
+            sum += last;
+        }
     }
     return sum;
 }
