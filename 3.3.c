@@ -18,6 +18,13 @@ double get_double(void);
 double solve_for_x(const double x, const double epsilon);
 
  /**
+ * @brief Вычислить e^(2x)
+ * @param x Параметр
+ * @return Результат вычисления
+ */
+double solve_for_x_normal(const double x);
+
+ /**
  * @brief Начало выполнения программы
  * @return Если всё прошло успешно, то 0, если ввод неправильный, то 1
  */
@@ -38,7 +45,7 @@ int main(void) {
 
     printf("      x      |    e^(2x)    |     Sum\n");
     for (double x = interval_start; x <= interval_end + step / 2.0L; x += step) {
-        double result = exp(2.0 * x);
+        double result = solve_for_x_normal(x);
         double sum_result = solve_for_x(x, epsilon);
         printf("%.10lf | %.10lf | %.10lf\n", x, result, sum_result);
     }
@@ -59,6 +66,9 @@ double solve_for_x(const double x, const double epsilon) {
     
 }
 
+double solve_for_x_normal(const double x) {
+    return exp(2.0 * x);
+}
 
 double get_double(void) {
     double ret = 0.0L;
