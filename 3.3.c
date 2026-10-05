@@ -56,14 +56,13 @@ double solve_for_x(const double x, const double epsilon) {
     double result = 1.0;
     double last = 1.0;
     int n = 1;
-    while (1u) {
+    do {
         last = last * (2*x / (double)n);
         result += last;
-        if (last < epsilon) break;
         n++;
-    }
+    } while (last >= epsilon);
+
     return result;
-    
 }
 
 double solve_for_x_normal(const double x) {
