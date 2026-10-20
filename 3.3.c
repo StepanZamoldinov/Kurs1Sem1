@@ -13,9 +13,10 @@ double get_double(void);
  * @brief Вычислить сумму функционального ряда для функции e^(2x) с заданной точностью
  * @param x Вычисляемое число
  * @param epsilon Точность вычисления
+ * @param precise точное значение суммы
  * @return Результат вычисления суммы
  */
-double solve_for_x(const double x, const double epsilon);
+double solve_for_x(const double x, const double epsilon, const double precise);
 
  /**
  * @brief Вычислить e^(2x)
@@ -31,7 +32,7 @@ double solve_for_x_normal(const double x);
 int main(void) {
     printf("Enter step: ");
     const double step = get_double();
-    if (step < 0.0) return 1;
+    if (step <= 0.0) return 1;
     
     printf("Enter interval start: ");
     const double interval_start = get_double();
@@ -46,21 +47,21 @@ int main(void) {
     printf("      x      |    e^(2x)    |     Sum\n");
     for (double x = interval_start; x <= interval_end + step / 2.0; x += step) {
         double result = solve_for_x_normal(x);
-        double sum_result = solve_for_x(x, epsilon);
+        double sum_result = solve_for_x(x, epsilon, result);
         printf("%.10lf | %.10lf | %.10lf\n", x, result, sum_result);
     }
     return 0;
 }
 
-double solve_for_x(const double x, const double epsilon) {
-    double result = 1.0;
+double solve_for_x(const double x, const double epsilon, const double precise) {
+    double result = 0.0;
     double last = 1.0;
     int n = 1;
-    do {
-        last = last * (2*x / (double)n);
+    while (precise - result >= epsilon) {
         result += last;
+        last = last * (2*x / (double)n);
         n++;
-    } while (last >= epsilon);
+    }
 
     return result;
 }
