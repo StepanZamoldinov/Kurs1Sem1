@@ -26,23 +26,29 @@ double solve_for_x(const double x, const double epsilon, const double precise);
 double solve_for_x_normal(const double x);
 
  /**
+ * @brief Завершить выполнение программы и вывести ошибку
+ * @param message Сообщение об ошибке
+ */
+void exit_with_message(const char *message);
+
+ /**
  * @brief Начало выполнения программы
  * @return Если всё прошло успешно, то 0, если ввод неправильный, то 1
  */
 int main(void) {
     printf("Enter step: ");
     const double step = get_double();
-    if (step <= 0.0) return 1;
+    if (step <= 0.0) exit_with_message("Step should be >0");
     
     printf("Enter interval start: ");
     const double interval_start = get_double();
     printf("Enter interval end: ");
     const double interval_end = get_double();
-    if (interval_end < interval_start) return 1;
+    if (interval_end < interval_start) exit_with_message("Interval end should be greater or equal interval start");
     
     printf("Enter precision: ");
     const double epsilon = get_double();
-    if (epsilon <= 0.0) return 1;
+    if (epsilon <= 0.0) exit_with_message("Precision should be >0");
 
     printf("      x      |    e^(2x)    |     Sum\n");
     for (double x = interval_start; x <= interval_end + step / 2.0; x += step) {
@@ -74,4 +80,9 @@ double get_double(void) {
     double ret = 0.0;
     if (scanf("%lf", &ret) != 1) exit(1);
     return ret;
+}
+
+void exit_with_message(const char *message) {
+    printf("ERROR: %s\n", message);
+    exit(1);
 }
