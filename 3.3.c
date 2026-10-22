@@ -63,7 +63,7 @@ double solve_for_x(const double x, const double epsilon, const double precise) {
     double result = 0.0;
     double last = 1.0;
     int n = 1;
-    while (precise - result >= epsilon) {
+    while (fabs(precise - result) >= epsilon) {
         result += last;
         last = last * (2*x / (double)n);
         n++;
