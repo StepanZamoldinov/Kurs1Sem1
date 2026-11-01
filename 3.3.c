@@ -83,7 +83,7 @@ double get_double(void) {
 }
 
 void exit_with_message(const char *message) {
-    if (char != NULL) {
+    if (message != NULL) {
         printf("ERROR: %s\n", message);
     }
     exit(1);
